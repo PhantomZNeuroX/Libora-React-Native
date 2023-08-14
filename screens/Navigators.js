@@ -3,7 +3,7 @@ import React from 'react'
 import Welcome from './Auth/Welcome';
 import LoginScreen from './Auth/login';
 import RegisterScreen from './Auth/register';
-import DrawerNav from './Home/DrawerNav';
+import DrawerNav from './Main/DrawerNav';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();

@@ -11,6 +11,7 @@ import { AuthStack, MainStack } from './screens/Navigators';
 import { Check } from './functions/auth';
 import { AuthProvider, AuthContext } from './components/misc/AuthContext';
 import useFonts from './functions/useFonts';
+import mainTheme from './components/misc/theme';
 
 const Stack = createStackNavigator();
 

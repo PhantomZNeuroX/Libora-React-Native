@@ -1,5 +1,6 @@
-import { Dimensions, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';import React from 'react'
-import { Button } from '@rneui/themed';
+import { Dimensions, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, Platform, Pressable, Button } from 'react-native';
+import React from 'react';
+//import { Button } from '@rneui/themed';
 import { useState, useRef } from 'react';
 import Liboralogo from '../../components/assets/Liboralogo';
 import BookPile from '../../components/assets/BookPile';
@@ -65,7 +66,9 @@ const Welcome = () => {
 
           <View style={{ width, height: '100%', justifyContent: 'center', alignItems:'center'}}>
               <Liboralogo width='73%' height='20%' style={{ marginVertical: 120 }} />
-              <Button onPress={() => nav.navigate('Login')} type='outline' title="Get Started!" titleStyle={{color: '#E2AD5D', fontSize: 22, textAlign: 'center', width: '100%'}} buttonStyle={{ borderColor: '#E2AD5D', borderWidth: 1, backgroundColor: 'white', borderRadius: 7, width: '54%'}} />
+              <Pressable onPress={() => nav.navigate('Login')}  style={{ borderColor: '#E2AD5D', borderWidth: 1, backgroundColor: 'white', borderRadius: 7, width: '54%', height: 45, justifyContent: 'center'}}  >
+                <Text style={{color: '#E2AD5D', fontSize: 22, textAlign: 'center', width: '100%'}}> Get Started! </Text>
+              </Pressable>
           </View>
         </ScrollView>
         <View style={{flex: 0.3}}>
@@ -74,7 +77,9 @@ const Welcome = () => {
             <View style={[styles.paginationDots, { opacity: pageIndex === index ? 1 : 0.2 }]} key={index} />
           ))}
         </View>
-        <Button type='clear' title="Skip" onPress={() => Scroll.current.scrollToEnd()} titleStyle={{color: '#E2AD5D', fontSize: 18}} />
+          <Pressable onPress={() => Scroll.current.scrollToEnd()} style={{width: '100%'}}>
+          <Text  style={{color: '#E2AD5D', fontSize: 18, width: '100%', textAlign: 'center'}} >Skip</Text>
+          </Pressable> 
         </View>
         
       </SafeAreaView>

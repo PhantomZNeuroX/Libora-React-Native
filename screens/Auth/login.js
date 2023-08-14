@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, Keyboard } from 'react-native'
 import React,{useEffect, useState, useContext} from 'react'
 import Background from '../../components/background'
-import { Input, Button } from '@rneui/themed'
+import { Input} from '@rneui/themed'
 import Liboralogo from '../../components/assets/Liboralogo'
 import { useNavigation } from '@react-navigation/native'
 import { Login } from '../../functions/auth'
@@ -64,7 +64,11 @@ const LoginScreen = () => {
           />
         </View>
 
-        <Button onPress={() => login()} type='outline' title="Login" titleStyle={{color: '#fff', fontSize: 22, textAlign: 'center', width: '100%'}} buttonStyle={{ backgroundColor: '#E2AD5D', borderRadius: 7, borderColor: 'transparent', width: '45%'}} />
+        <TouchableOpacity onPress={() => login()}  style={{ borderColor: '#E2AD5D', borderWidth: 1, backgroundColor: 'white', borderRadius: 7, width: '54%', height: 45, justifyContent: 'center', backgroundColor: '#E2AD5D'}}  >
+                <Text style={{color: '#fff', fontSize: 22, textAlign: 'center', width: '100%'}}> Login </Text>
+        </TouchableOpacity>
+
+        
       </View>
       <TouchableOpacity style={{position: 'absolute', bottom: 42.5, width: '100%', opacity: 1 }} onPress={()=> nav.navigate('Register')}>
         { keyboardOpen ? null :

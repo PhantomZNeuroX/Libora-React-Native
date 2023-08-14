@@ -48,7 +48,9 @@ const RegisterScreen = () => {
           />
         </View>
 
-        <Button type='outline' title="Next" titleStyle={{color: '#fff', fontSize: 22, textAlign: 'center', width: '100%'}} buttonStyle={{ backgroundColor: '#E2AD5D', borderRadius: 7, borderColor: 'transparent', width: '45%'}} />
+        <TouchableOpacity onPress={() => login()}  style={{ borderColor: '#E2AD5D', borderWidth: 1, backgroundColor: 'white', borderRadius: 7, width: '54%', height: 45, justifyContent: 'center', backgroundColor: '#E2AD5D'}}  >
+                <Text style={{color: '#fff', fontSize: 22, textAlign: 'center', width: '100%'}}> Login </Text>
+        </TouchableOpacity>
       </View>
       <TouchableOpacity style={{position: 'absolute', bottom: 42.5, width: '100%', opacity: 1 }} onPress={()=> nav.navigate('Login')}>
         {keyboardOpen ? null :
