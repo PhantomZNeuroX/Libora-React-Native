@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import ProgressBar from '../misc/progressBar'
+import { useNavigation } from '@react-navigation/native'
 
 const Book = ({percent = '0%',src }) => {
+    const navigation = useNavigation()
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('BookView') }>
         <Image style={styles.bookCover} source={{uri:src}} />
         <ProgressBar percent={percent}/>
     </TouchableOpacity>

@@ -5,6 +5,7 @@ import LoginScreen from './Auth/login';
 import RegisterScreen from './Auth/register';
 import DrawerNav from './Main/DrawerNav';
 import { createStackNavigator } from '@react-navigation/stack';
+import BookView from './Main/Reading/BookView';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,8 @@ export const MainStack = () => {
           headerShown: false
         }}>
         <Stack.Screen name="DrawerNav" component={DrawerNav} />
+
+        <Stack.Screen name="BookView" component={BookView} />
       </Stack.Navigator>
     )
   }
