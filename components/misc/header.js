@@ -3,23 +3,29 @@ import { View, Text, TouchableOpacity, StyleSheet, Platform, SafeAreaView } from
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from 'react-native-vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Liboralogo from '../assets/Liboralogo';
 
-export const MainHeader = ({ navigation, title }) => {
+export const MainHeader = ({title, type}) => {
   
   const insets = useSafeAreaInsets();
-
+  const navigation = useNavigation();
 
   const handleBackPress = () => {
-    navigation.toggleDrawer();
+    if (type == 'back' ){
+      navigation.goBack();
+    }
+    else{
+      navigation.toggleDrawer();
+    }
   };
 
   return (
     <View style={[styles.container, {marginTop: Platform.OS === 'ios' ? 0 : insets.top-4 }]}>
       <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
-        <Ionicons name="menu-outline" style={{fontSize: 30, color: 'black', marginLeft: -8}} />
+        <Ionicons name={type == 'back' ? 'chevron-back' : "menu-outline"} style={{fontSize: 30, color: 'black', marginLeft: -8}} />
       </TouchableOpacity>
+      {title == undefined ? <LiboraLogo width={80} /> : title }
       
-        {title}
       
     </View>
   );

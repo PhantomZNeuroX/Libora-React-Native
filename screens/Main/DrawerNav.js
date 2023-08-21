@@ -76,8 +76,7 @@ const DrawerNav = () => {
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen name="Home" component={TabNav} options={{
-          headerShadowVisible: false,
-          header: (props) => <MainHeader {...props} title={<LiboraLogo width={80}/>} />,
+          headerShown: false,
           drawerIcon: ({ focused, size }) => (
             <Ionicons name="home" size={size} color={focused ? '#D6A04D' : '#656566'} />
           ),

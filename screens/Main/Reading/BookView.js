@@ -1,9 +1,9 @@
-import { View, Text, SafeAreaView } from 'react-native'
-import React,{useState} from 'react'
+import { View, Text, SafeAreaView, Platform } from 'react-native'
+import React,{useState, useEffect} from 'react'
 import { WebView } from 'react-native-webview';
 import WebViewFile from '../../../assets/EpubReader.html'
-import Background from '../../../components/background';
 import { useNavigation } from '@react-navigation/native';
+import * as FileSystem from "expo-file-system";
 
 
 const BookView = () => {
@@ -24,13 +24,16 @@ const BookView = () => {
     
   }
 
+ const htmlInline = ``
+
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: theme, marginTop: -13}} >
+    <SafeAreaView style={{flex: 1, backgroundColor: theme, marginTop: Platform.OS == 'ios' ? -13 : 0, paddingTop: Platform.OS == 'ios' ? 0 : 40,}} >
     <WebView
-    injectedJavaScript='window.onload = () => ePubViewer.doBook("https://standardebooks.org/ebooks/bram-stoker/dracula/downloads/bram-stoker_dracula.epub")'
+    injectedJavaScript='window.onload = setTimeout(() => ePubViewer.doBook("https://standardebooks.org/ebooks/bram-stoker/dracula/downloads/bram-stoker_dracula.epub", 0))'
     originWhitelist={['*']}
-    source={WebViewFile}
+    source={ Platform.OS == 'ios' ? WebViewFile : {uri: 'https://phantomzneurox.github.io/Libora-Epub-Reader'} }
     style={{ marginTop: 0 }}
+    startInLoadingState={true}
     javaScriptEnabled={true}
     domStorageEnabled={true}
     onMessage={handleMessage}
