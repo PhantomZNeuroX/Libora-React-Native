@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 const Book = ({percent = '0%',src, style}, props) => {
     const navigation = useNavigation()
   return (
-    <TouchableOpacity style={[styles.container, style ]} onPress={() => navigation.navigate('BookView') } {...props}  >
+    <TouchableOpacity style={[styles.container, style ]} onPress={() => navigation.navigate('BookInfo') } {...props}  >
         <Image style={styles.bookCover} source={{uri:src}} />
         <ProgressBar percent={percent}/>
     </TouchableOpacity>

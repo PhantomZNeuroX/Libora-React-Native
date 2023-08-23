@@ -39,4 +39,3 @@ const CustomSpeedometer = (props) => (
 
 )
 export default CustomSpeedometer;
-``
