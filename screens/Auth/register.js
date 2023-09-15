@@ -59,10 +59,13 @@ const RegisterScreen = () => {
           <Input
             secureTextEntry={true}
             placeholder="Date of Birth"
+            value={date.toDateString()}
+            
             leftIcon={{ type: 'font-awesome', name: 'birthday-cake', color: '#E2AD5D' }}
             style={styles.input}
             onChangeText={() => {}}
             inputContainerStyle={{borderColor: 'transparent',backgroundColor: '#fff', borderRadius: 7, borderWidth: 1, borderColor: '#E2AD5D', paddingLeft: 15 }}
+            editable={false}
             containerStyle={{}}
           />
           </TouchableOpacity>
@@ -73,7 +76,7 @@ const RegisterScreen = () => {
         </View>
 
         <View ref={pageRef2} style={{width: '100%', alignItems: 'center', display: 'none'}} >
-        <View style={{width: '92%', marginBottom: 50}}>
+        <View style={{width: '92%', marginBottom: 50, marginTop: 15}}>
             <Input
               placeholder="Email"
               leftIcon={{ type: 'font-awesome', name: 'envelope', color: '#E2AD5D' }}
@@ -94,7 +97,7 @@ const RegisterScreen = () => {
 
         </View>
         <TouchableOpacity onPress={() => login()}  style={{ borderColor: '#E2AD5D', borderWidth: 1, backgroundColor: 'white', borderRadius: 7, width: '54%', height: 45, justifyContent: 'center', backgroundColor: '#E2AD5D'}}  >
-                <Text style={{color: '#fff', fontSize: 22, textAlign: 'center', width: '100%'}}> Login </Text>
+                <Text style={{color: '#fff', fontSize: 22, textAlign: 'center', width: '100%'}}> Register </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => handleBack()}  style={{ marginTop: 15, borderColor: '#E2AD5D', borderWidth: 1, backgroundColor: 'white', borderRadius: 7, width: '54%', height: 45, justifyContent: 'center'}}  >
@@ -113,9 +116,12 @@ const RegisterScreen = () => {
       </TouchableOpacity>
 
       <DatePicker
+        title={'Date of Birth'}
         modal
+        mode='date'
         open={open}
         date={date}
+        value={date}
         onConfirm={(date) => {
           setOpen(false)
           setDate(date)
@@ -123,6 +129,7 @@ const RegisterScreen = () => {
         onCancel={() => {
           setOpen(false)
         }}
+        onChangeText={(selectedDate) => console.log(selectedDate)}
       />
     </Background>
   )

@@ -15,10 +15,15 @@ const ReadingDashboard = () => {
       <View style={styles.shelfWrap}>
         <View style={styles.headerTextWrap} >
         <Text style={[styles.headerText, {paddingBottom: 0, paddingLeft: 0}]} >My Shelf</Text>
-        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => navigation.navigate('My Books')} >
-        <Ionicons name='grid-outline' color={'#E2AD5D'} style={{fontSize: 25}} />
-        {/* <Ionicons name='add' color={'#E2AD5D'} style={{fontSize: 29}} /> */}
-        </TouchableOpacity>
+        <View style={{flexDirection: 'row'}} >
+          <TouchableOpacity onPress={() => navigation.navigate('My Books')} >
+          <Ionicons name='grid-outline' color={'#E2AD5D'} style={{fontSize: 25}} />
+          {/* <Ionicons name='add' color={'#E2AD5D'} style={{fontSize: 29}} /> */}
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('My Books')} >
+          <Ionicons name='add' color={'#E2AD5D'} style={{fontSize: 29, paddingLeft: 15}} />
+          </TouchableOpacity>
+        </View>
         </View>
         <ScrollView style={styles.shelfContainer} horizontal={true} contentContainerStyle={{alignItems: 'center'}} >
           <Book style={styles.scrollBook} percent='42%' src={'https://online.pubhtml5.com/bqabe/zvmo/files/large/1.jpg'} />
@@ -29,9 +34,38 @@ const ReadingDashboard = () => {
           </TouchableOpacity>
         </ScrollView>
       </View>
-      <Text style={[styles.headerText, {marginTop: 24}]}>Reading Goals</Text>
+      <Text style={[styles.headerText, {marginTop: 24}]}>Reading Goal</Text>
       <ReadingGoal percent={45} style={styles.gaugeGraph} />
-      <Text style={[styles.headerText, {marginTop: 30 }]}>Today's Summary</Text>
+      <Text style={[styles.headerText, {marginTop: 30 }]}>Word Bag Recap</Text>
+      <View style={styles.DictionaryWrap} >
+          <View style={styles.wordWrap} >
+            <View style={styles.leftDicWrap} >
+                <Text style={{fontFamily: 'MontserratMD', fontSize: 24,}} >1</Text>
+            </View>
+            <View style={styles.rightDicWrap}>
+              <Text style={styles.wordDic}>Beautiful</Text>
+              <Text style={styles.wordDesc}>Pleasing the senses or mind aesthetically.</Text>
+            </View>
+          </View>
+          <View style={styles.wordWrap} >
+            <View style={styles.leftDicWrap} >
+                <Text style={{fontFamily: 'MontserratMD', fontSize: 24,}} >2</Text>
+            </View>
+            <View style={styles.rightDicWrap}>
+              <Text style={styles.wordDic}>Aesthetic</Text>
+              <Text style={styles.wordDesc}>In a way that gives pleasure through beauty.</Text>
+            </View>
+          </View>
+          <View style={styles.wordWrap} >
+            <View style={styles.leftDicWrap} >
+                <Text style={{fontFamily: 'MontserratMD', fontSize: 24,}} >3</Text>
+            </View>
+            <View style={styles.rightDicWrap}>
+              <Text style={styles.wordDic}>Glorius</Text>
+              <Text style={styles.wordDesc}>Having, worthy of, or bringing fame or admiration.</Text>
+            </View>
+          </View>
+      </View>
       </ScrollView>
     </Background>
   )
@@ -92,4 +126,58 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
 },
+DictionaryWrap:{
+  width: '95%',
+  marginHorizontal: '2.5%',
+  borderRadius: 12,
+  height: 'auto',
+  minHeight: 100,
+  backgroundColor: '#FFE0B2',
+
+  paddingVertical: 8.5,
+  paddingHorizontal: '3%',
+  marginBottom: 40
+},
+wordWrap:{
+  width: '100%',
+  minHeight: 50,
+  backgroundColor: '#FCCF8B',
+  borderRadius: 12,
+  flexDirection: 'row',
+  
+  marginVertical: 6,
+},
+wordDic:{
+  fontSize: 20,
+  fontFamily: 'MontserratMD',
+  paddingHorizontal: 10,
+  fontWeight: 'bold',
+  paddingTop: 10,
+},
+wordDesc:{
+  fontSize: 16,
+  fontFamily: 'Futura',
+  paddingHorizontal: 10,
+  paddingTop: 7,
+  paddingBottom: 14,
+},
+leftDicWrap:{
+  width: '13%',
+  height: '100%',
+  minHeight: 50,
+  backgroundColor: '#E2AD5D',
+  borderTopLeftRadius: 12,
+  borderBottomLeftRadius: 12,
+
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+rightDicWrap:{
+  width: '87%',
+  height: 'auto',
+  backgroundColor: '#FCCF8B',
+  borderTopRightRadius: 12,
+  borderBottomRightRadius: 12,
+}
+
 })

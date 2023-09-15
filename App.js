@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useContext, useCallback } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, LogBox, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AppLoading from 'expo-app-loading';
@@ -15,6 +15,8 @@ import mainTheme from './components/misc/theme';
 
 const Stack = createStackNavigator();
 
+
+LogBox.ignoreLogs(['Sending']);
 
 
 function AppContainer() {

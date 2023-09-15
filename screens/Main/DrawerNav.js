@@ -58,6 +58,7 @@ const DrawerNav = () => {
 
     <Background>
       <Drawer.Navigator
+        initialRouteName={'Home'}
         screenOptions={{ 
           drawerActiveBackgroundColor: '#FFE0B2',
           drawerLabelStyle: {
